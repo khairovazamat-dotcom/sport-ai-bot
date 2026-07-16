@@ -3,6 +3,7 @@ import asyncio
 import logging
 
 from aiohttp import web
+
 from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
@@ -17,6 +18,7 @@ async def health(request):
 
 async def start_web_server():
     app = web.Application()
+
     app.router.add_get("/", health)
 
     runner = web.AppRunner(app)
@@ -32,7 +34,9 @@ async def start_web_server():
 
     await site.start()
 
-    logging.info(f"Web server started on port {port}")
+    logging.info(
+        f"Web server started on port {port}"
+    )
 
 
 async def main():
@@ -40,7 +44,9 @@ async def main():
     token = os.getenv("BOT_TOKEN")
 
     if not token:
-        raise ValueError("BOT_TOKEN не найден")
+        raise ValueError(
+            "BOT_TOKEN не найден"
+        )
 
     bot = Bot(
         token=token,
@@ -57,19 +63,29 @@ async def main():
         await message.answer(
             "🤖 Sport AI работает!\n\n"
             "Render подключен ✅\n"
-            "Скоро добавим AI анализ матчей ⚽"
+            "AI анализ матчей скоро вернём ⚽"
         )
 
 
-    await bot.delete_webhook(drop_pending_updates=True)
+    await bot.delete_webhook(
+        drop_pending_updates=True
+    )
 
-    logging.info("Starting web server...")
 
-await start_web_server()
+    logging.info(
+        "Starting web server..."
+    )
 
-logging.info("Web server OK")
+    await start_web_server()
 
-logging.info("Bot started")
+    logging.info(
+        "Web server OK"
+    )
+
+    logging.info(
+        "Bot started"
+    )
+
 
     await dp.start_polling(bot)
 
