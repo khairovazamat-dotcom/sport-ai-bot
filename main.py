@@ -63,9 +63,13 @@ async def main():
 
     await bot.delete_webhook(drop_pending_updates=True)
 
-    await start_web_server()
+    logging.info("Starting web server...")
 
-    logging.info("Bot started")
+await start_web_server()
+
+logging.info("Web server OK")
+
+logging.info("Bot started")
 
     await dp.start_polling(bot)
 
