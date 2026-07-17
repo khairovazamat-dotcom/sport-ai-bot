@@ -18,7 +18,6 @@ async def health(request):
 
 async def start_web_server():
     app = web.Application()
-
     app.router.add_get("/", health)
 
     runner = web.AppRunner(app)
@@ -68,15 +67,6 @@ async def main():
 
 
     await bot.delete_webhook(
-        drop_pending_updates=True
-    )
-
-
-    logging.info(
-        "Starting web server..."
-    )
-
-        await bot.delete_webhook(
         drop_pending_updates=True
     )
 
