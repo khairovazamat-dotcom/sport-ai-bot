@@ -76,9 +76,21 @@ async def main():
         "Starting web server..."
     )
 
+        await bot.delete_webhook(
+        drop_pending_updates=True
+    )
+
+    logging.info(
+        "Starting web server..."
+    )
+
     await start_web_server()
 
-        logging.info(
+    logging.info(
+        "Web server OK"
+    )
+
+    logging.info(
         "Bot started"
     )
 
