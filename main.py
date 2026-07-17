@@ -78,17 +78,10 @@ async def main():
 
     await start_web_server()
 
-    logging.info(
-        "Web server OK"
-    )
-
-    logging.info(
+        logging.info(
         "Bot started"
     )
 
-
-
-    
     await dp.start_polling(bot)
 
 
