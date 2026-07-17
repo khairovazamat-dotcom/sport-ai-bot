@@ -89,8 +89,7 @@ async def main():
 
 
     
-    await dp.start_polling(bot)
-    
+
         await dp.start_polling(bot)
 
 
