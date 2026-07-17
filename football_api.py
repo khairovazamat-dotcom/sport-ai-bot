@@ -15,7 +15,7 @@ async def get_fixtures():
     url = f"{BASE_URL}/fixtures"
 
     params = {
-        "next":5
+        "next": 5
     }
 
     async with aiohttp.ClientSession() as session:
