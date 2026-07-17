@@ -15,7 +15,7 @@ async def get_fixtures():
     url = f"{BASE_URL}/fixtures"
 
     params = {
-        "date": "2026-07-17"
+        "next":5
     }
 
     async with aiohttp.ClientSession() as session:
