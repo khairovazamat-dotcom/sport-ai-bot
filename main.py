@@ -61,12 +61,12 @@ async def main():
 
     @dp.message()
     async def echo(message):
-        await message.answer(
-            "🤖 Sport AI работает!\n\n"
-            "Render подключен ✅\n"
-            "AI анализ матчей скоро вернём ⚽"
-        )
+        fixtures = await get_fixtures()
 
+await message.answer(
+    f"⚽ API Football ответил!\n\n"
+    f"Получено данных: {len(fixtures.get('response', []))}"
+)
 
     await bot.delete_webhook(
         drop_pending_updates=True
